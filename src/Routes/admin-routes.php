@@ -12,15 +12,15 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_ur
      * Admin blog routes
      */
     Route::get('blog', [AdminBlogController::class, 'index'])->defaults('_config', [
-        'view' => 'blog::blogs.index',
+        'view' => 'blog::admin.blogs.index',
     ])->name('admin.blog.index');
 
     Route::get('blog/create', [AdminBlogController::class, 'create'])->defaults('_config', [
-        'view' => 'blog::blogs.create',
+        'view' => 'blog::admin.blogs.create',
     ])->name('admin.blog.create');
 
     Route::get('/blog/edit/{id}', [AdminBlogController::class, 'edit'])->defaults('_config', [
-        'view' => 'blog::blogs.edit',
+        'view' => 'blog::admin.blogs.edit',
     ])->name('admin.blog.edit');
 
     Route::post('blog/store', [AdminBlogController::class, 'store'])->defaults('_config', [
@@ -39,15 +39,15 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_ur
      * Admin category routes
      */
     Route::get('category', [AdminCategoryController::class, 'index'])->defaults('_config', [
-        'view' => 'blog::categories.index',
+        'view' => 'blog::admin.categories.index',
     ])->name('admin.blog.category.index');
 
     Route::get('category/create', [AdminCategoryController::class, 'create'])->defaults('_config', [
-        'view' => 'blog::categories.create',
+        'view' => 'blog::admin.categories.create',
     ])->name('admin.blog.category.create');
 
     Route::get('/category/edit/{id}', [AdminCategoryController::class, 'edit'])->defaults('_config', [
-        'view' => 'blog::categories.edit',
+        'view' => 'blog::admin.categories.edit',
     ])->name('admin.blog.category.edit');
 
     Route::post('category/store', [AdminCategoryController::class, 'store'])->defaults('_config', [
@@ -66,15 +66,15 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_ur
      * Admin tag routes
      */
     Route::get('tag', [AdminTagController::class, 'index'])->defaults('_config', [
-        'view' => 'blog::tags.index',
+        'view' => 'blog::admin.tags.index',
     ])->name('admin.blog.tag.index');
 
     Route::get('tag/create', [AdminTagController::class, 'create'])->defaults('_config', [
-        'view' => 'blog::tags.create',
+        'view' => 'blog::admin.tags.create',
     ])->name('admin.blog.tag.create');
 
     Route::get('/tag/edit/{id}', [AdminTagController::class, 'edit'])->defaults('_config', [
-        'view' => 'blog::tags.edit',
+        'view' => 'blog::admin.tags.edit',
     ])->name('admin.blog.tag.edit');
 
     Route::post('tag/store', [AdminTagController::class, 'store'])->defaults('_config', [
@@ -93,11 +93,11 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_ur
      * Admin comment routes
      */
     Route::get('comment', [AdminCommentController::class, 'index'])->defaults('_config', [
-        'view' => 'blog::comments.index',
+        'view' => 'blog::admin.comments.index',
     ])->name('admin.blog.comment.index');
 
     Route::get('/comment/edit/{id}', [AdminCommentController::class, 'edit'])->defaults('_config', [
-        'view' => 'blog::comments.edit',
+        'view' => 'blog::admin.comments.edit',
     ])->name('admin.blog.comment.edit');
 
     Route::post('/comment/update/{id}', [AdminCommentController::class, 'update'])->defaults('_config', [

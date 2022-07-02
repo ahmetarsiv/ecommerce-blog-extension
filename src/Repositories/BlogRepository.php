@@ -4,8 +4,10 @@ namespace Webkul\Blog\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
+use Webkul\Blog\Models\Category;
 use Webkul\Core\Eloquent\Repository;
 
 class BlogRepository extends Repository
@@ -131,15 +133,54 @@ class BlogRepository extends Repository
      */
     public function getActiveBlogs()
     {
-        $currentLocale = core()->getCurrentLocale();
+        $locale = config('app.locale');
 
-        return $this->whereRaw("find_in_set(?, locale)", [$currentLocale->code])
-            ->where(function ($query) {
-                $query->where('published_at', '>=', Carbon::now()->format('Y-m-d'))
-                    ->orWhereNull('published_at');
-            })
-            ->orderBy('sort_order', 'ASC')
-            ->get()
-            ->toArray();
+        $blogs = DB::table('blogs')
+            ->where('published_at', '<=', Carbon::now()->format('Y-m-d'))
+            ->where('status', 1)
+            ->where('locale', $locale)
+            ->orderBy('id', 'DESC')
+            ->paginate(12);
+
+        return $blogs;
+    }
+
+    /**
+     * Get only single blogs.
+     *
+     * @return array
+     */
+    public function getSingleBlogs($id)
+    {
+        $blog = DB::table('blogs')
+            ->whereSlug($id)
+            ->where('published_at', '<=', Carbon::now()->format('Y-m-d'))
+            ->where('status', 1)
+            ->first();
+
+        return $blog;
+    }
+
+    /**
+     * Get only single blogs.
+     *
+     * @return array
+     */
+    public function getBlogCategories($id)
+    {
+        $locale = config('app.locale');
+
+        $categoryId = DB::table('blog_categories')
+            ->where('slug', $id)->first();
+
+        $blogs = DB::table('blogs')
+            ->where('published_at', '<=', Carbon::now()->format('Y-m-d'))
+            ->where('default_category', $categoryId['id'])
+            ->where('status', 1)
+            ->where('locale', $locale)
+            ->orderBy('id', 'DESC')
+            ->paginate(12);
+
+        return $blogs;
     }
 }

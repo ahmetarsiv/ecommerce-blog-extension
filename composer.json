@@ -1,0 +1,33 @@
+{
+    "name": "ahmetarsiv/ecommerce-blog-extension",
+    "description": "The Laravel eCommerce Blog Extension",
+    "keywords": [
+        "bagisto",
+        "blog",
+        "ecommerce"
+    ],
+    "homepage": "https://github.com/ahmetarsivi/ecommerce-blog-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ahmet Arşiv",
+            "email": "ahmetarsivi@gmail.com",
+            "homepage": "https://arsivpro.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Webkul\\Blog\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Blog\\Providers\\BlogServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}

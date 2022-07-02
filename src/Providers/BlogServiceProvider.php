@@ -16,6 +16,8 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../Routes/admin-routes.php');
 
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/shop-routes.php');
+
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'blog');
