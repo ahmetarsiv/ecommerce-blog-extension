@@ -10,6 +10,7 @@ use Webkul\Blog\Datagrids\BlogDataGrid;
 use Webkul\Blog\Models\Category;
 use Webkul\Blog\Models\Tag;
 use Webkul\Blog\Repositories\BlogRepository;
+use Webkul\User\Models\Admin;
 
 class AdminBlogController extends Controller
 {
@@ -61,7 +62,9 @@ class AdminBlogController extends Controller
 
         $tags = Tag::all();
 
-        return view($this->_config['view'], compact('categories', 'tags'))->with('locale', $locale);
+        $users = Admin::all();
+
+        return view($this->_config['view'], compact('categories', 'tags', 'users'))->with('locale', $locale);
     }
 
     /**
@@ -110,7 +113,9 @@ class AdminBlogController extends Controller
 
         $tags = Tag::all();
 
-        return view($this->_config['view'], compact('blog', 'categories', 'tags'));
+        $users = Admin::all();
+
+        return view($this->_config['view'], compact('blog', 'categories', 'tags', 'users'));
     }
 
     /**

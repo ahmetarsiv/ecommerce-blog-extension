@@ -3,6 +3,7 @@
 namespace Webkul\Blog\Repositories;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Webkul\Core\Eloquent\Repository;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;

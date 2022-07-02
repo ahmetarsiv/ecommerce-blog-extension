@@ -25,4 +25,9 @@ class Category extends Model implements CategoryContract
         'created_at',
         'updated_at'
     ];
+
+    public function blog()
+    {
+        return $this->hasMany(Blog::class, 'default_category');
+    }
 }

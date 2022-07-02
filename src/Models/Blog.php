@@ -37,15 +37,7 @@ class Blog extends Model implements BlogContract
      */
     public function category()
     {
-        return $this->hasOne('Webkul\Blog\Models\Category', 'id', 'category');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function tag()
-    {
-        return $this->hasOne('Webkul\Blog\Models\Tag', 'id', 'tag');
+        return $this->belongsTo(Category::class, 'default_category');
     }
 
     /**
