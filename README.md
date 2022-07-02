@@ -1,5 +1,6 @@
 # eCommerce Blog Extension
-[![License](https://poser.pugx.org/bagisto/bagisto-gdpr/license)](https://github.com/ahmetarsiv/ecommerce-blog-extension/blob/master/LICENSE)
+[![License](https://poser.pugx.org/ahmetarsiv/ecommerce-blog-extension/license)](https://github.com/ahmetarsiv/ecommerce-blog-extension/blob/master/LICENSE)
+<a href="https://packagist.org/packages/ahmetarsiv/ecommerce-blog-extension"><img src="https://poser.pugx.org/ahmetarsiv/ecommerce-blog-extension/d/total.svg" alt="Total Downloads"></a>
 
 ## 1. Introduction:
 
@@ -20,28 +21,77 @@ With the help of this module, the store owner can add a blog on the bagisto stor
 
 ## 2. Requirements:
 
-* **PHP**: 7.3 or higher.
+* **PHP**: 8.0 or higher.
 * **Bagisto**: v1.4.*
 * **Composer**: 1.6.5 or higher.
 
 ## 3. Installation:
 
-Create packages/Webkul/Blog/ folders then follow the steps below
+- Run the following command
+```
+composer require ahmetarsiv/ecommerce-blog-extension
+```
 
-Open ‘app.php’ file inside ‘config’ folder & add your service provider inside the ‘providers’ array.
+- Run these commands below to complete the setup
+```
+composer dump-autoload
+```
+
+- Run these commands below to complete the setup
+```
+php artisan migrate
+```
+```
+php artisan storage:link
+```
+```
+php artisan route:cache
+```
+```
+php artisan vendor:publish --all
+```
+
+## Installation without composer:
+
+- Unzip the respective extension zip and then merge "packages" and "storage" folders into project root directory.
+- Goto config/app.php file and add following line under 'providers'
 
 ```
 Webkul\Blog\Providers\BlogServiceProvider::class,
 ```
 
-Goto ‘composer.json’ file and add following line under psr-4
+- Goto composer.json file and add following line under 'psr-4'
+
 ```
 "Webkul\\Blog\\": "packages/Webkul/Blog/src"
 ```
- 
+
+- Run these commands below to complete the setup
+
 ```
 composer dump-autoload
 ```
-Thank you to all our backers! 🙏
 
-<a href="https://opencollective.com/arsivpro#contributors" target="_blank"><img src="https://opencollective.com/arsivpro/backers.svg?width=890"></a>
+```
+php artisan migrate
+```
+
+```
+php artisan storage:link
+```
+
+```
+php artisan route:cache
+```
+
+```
+php artisan vendor:publish --all
+```
+
+> That's it, now just execute the project on your specified domain.
+
+## Contributors
+
+This project is on [Open Collective](https://opencollective.com/arsivpro), and it exists thanks to the people who contribute.
+
+<a href="https://github.com/ahmetarsiv/ecommerce-blog-extension/graphs/contributors"><img src="https://opencollective.com/arsivpro/backers.svg?width=890"/></a>
