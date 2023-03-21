@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Blog\Repositories;
+namespace Webkul\Article\Repositories;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -17,14 +17,14 @@ class BlogCategoryRepository extends Repository
      */
     function model()
     {
-        return 'Webkul\Blog\Models\Category';
+        return 'Webkul\Article\Models\Category';
     }
 
     /**
      * Save blog category.
      *
      * @param  array  $data
-     * @return bool|\Webkul\Blog\Contracts\Category
+     * @return bool|\Webkul\Article\Contracts\Category
      */
     public function save(array $data)
     {

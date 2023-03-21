@@ -1,15 +1,15 @@
 <?php
 
-namespace Webkul\Blog\Http\Controllers\Admin;
+namespace Webkul\Article\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Webkul\Blog\Datagrids\TagDataGrid;
-use Webkul\Blog\Repositories\BlogTagRepository;
+use Webkul\Article\Datagrids\TagDataGrid;
+use Webkul\Article\Repositories\BlogTagRepository;
 
-class AdminTagController extends Controller
+class TagController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 

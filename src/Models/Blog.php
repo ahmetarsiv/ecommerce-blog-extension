@@ -1,10 +1,10 @@
 <?php
 
-namespace Webkul\Blog\Models;
+namespace Webkul\Article\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Webkul\Blog\Contracts\Blog as BlogContract;
+use Webkul\Article\Contracts\Blog as BlogContract;
 use Webkul\Core\Models\ChannelProxy;
 
 class Blog extends Model implements BlogContract
@@ -22,7 +22,7 @@ class Blog extends Model implements BlogContract
         'default_category',
         'author',
         'tags',
-        'image',
+        'src',
         'status',
         'locale',
         'allow_comments',

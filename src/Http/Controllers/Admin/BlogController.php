@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\Blog\Http\Controllers\Admin;
+namespace Webkul\Article\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Webkul\Blog\Datagrids\BlogDataGrid;
-use Webkul\Blog\Models\Category;
-use Webkul\Blog\Models\Tag;
-use Webkul\Blog\Repositories\BlogRepository;
+use Webkul\Article\Datagrids\BlogDataGrid;
+use Webkul\Article\Models\Category;
+use Webkul\Article\Models\Tag;
+use Webkul\Article\Repositories\BlogRepository;
 use Webkul\User\Models\Admin;
 
-class AdminBlogController extends Controller
+class BlogController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 

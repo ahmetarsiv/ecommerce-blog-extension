@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Blog\Repositories;
+namespace Webkul\Article\Repositories;
 
 use Webkul\Core\Eloquent\Repository;
 use Illuminate\Support\Facades\Event;
@@ -14,14 +14,14 @@ class BlogTagRepository extends Repository
      */
     function model()
     {
-        return 'Webkul\Blog\Models\Tag';
+        return 'Webkul\Article\Models\Tag';
     }
 
     /**
      * Save blog tag.
      *
      * @param  array  $data
-     * @return bool|\Webkul\Blog\Contracts\Tag
+     * @return bool|\Webkul\Article\Contracts\Tag
      */
     public function save(array $data)
     {

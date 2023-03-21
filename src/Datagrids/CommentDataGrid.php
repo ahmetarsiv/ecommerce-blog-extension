@@ -1,8 +1,9 @@
 <?php
 
-namespace Webkul\Blog\Datagrids;
+namespace Webkul\Article\Datagrids;
 
 use Illuminate\Support\Facades\DB;
+use Webkul\Core\Models\Channel;
 use Webkul\Ui\DataGrid\DataGrid;
 
 class CommentDataGrid extends DataGrid

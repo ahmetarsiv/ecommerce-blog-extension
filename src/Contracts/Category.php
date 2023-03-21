@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Blog\Contracts;
+namespace Webkul\Article\Contracts;
 
 interface Category
 {

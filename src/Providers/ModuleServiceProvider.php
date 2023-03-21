@@ -1,15 +1,15 @@
 <?php
 
-namespace Webkul\Blog\Providers;
+namespace Webkul\Article\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Konekt\Concord\BaseModuleServiceProvider;
 
-class ModuleServiceProvider extends ServiceProvider
+class ModuleServiceProvider extends BaseModuleServiceProvider
 {
     protected $models = [
-        \Webkul\Blog\Models\Blog::class,
-        \Webkul\Blog\Models\Category::class,
-        \Webkul\Blog\Models\Tag::class,
-        \Webkul\Blog\Models\Comment::class,
+        \Webkul\Article\Models\Blog::class,
+        \Webkul\Article\Models\Category::class,
+        \Webkul\Article\Models\Tag::class,
+        \Webkul\Article\Models\Comment::class,
     ];
 }

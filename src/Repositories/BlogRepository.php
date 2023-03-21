@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\Blog\Repositories;
+namespace Webkul\Article\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
-use Webkul\Blog\Models\Category;
+use Webkul\Article\Models\Category;
 use Webkul\Core\Eloquent\Repository;
 
 class BlogRepository extends Repository
@@ -19,14 +19,14 @@ class BlogRepository extends Repository
      */
     function model()
     {
-        return 'Webkul\Blog\Models\Blog';
+        return 'Webkul\Article\Models\Blog';
     }
 
     /**
      * Save blog.
      *
      * @param  array  $data
-     * @return bool|\Webkul\Blog\Contracts\Blog
+     * @return bool|\Webkul\Article\Contracts\Blog
      */
     public function save(array $data)
     {
@@ -36,8 +36,8 @@ class BlogRepository extends Repository
 
         $uploaded = $image = false;
 
-        if (isset($data['image'])) {
-            $image = $first = Arr::first($data['image'], function ($value, $key) {
+        if (isset($data['src'])) {
+            $image = $first = Arr::first($data['src'], function ($value, $key) {
                 if ($value) {
                     return $value;
                 } else {
@@ -49,13 +49,13 @@ class BlogRepository extends Repository
         if ($image != false) {
             $uploaded = $image->store($dir);
 
-            unset($data['image'], $data['_token']);
+            unset($data['src'], $data['_token']);
         }
 
         if ($uploaded) {
-            $data['image'] = $uploaded;
+            $data['src'] = $uploaded;
         } else {
-            unset($data['image']);
+            unset($data['src']);
         }
 
         $blog = $this->create($data);
@@ -80,8 +80,8 @@ class BlogRepository extends Repository
 
         $uploaded = $image = false;
 
-        if (isset($data['image'])) {
-            $image = $first = Arr::first($data['image'], function ($value, $key) {
+        if (isset($data['src'])) {
+            $image = $first = Arr::first($data['src'], function ($value, $key) {
                 return $value ? $value : false;
             });
         }
@@ -89,17 +89,17 @@ class BlogRepository extends Repository
         if ($image != false) {
             $uploaded = $image->store($dir);
 
-            unset($data['image'], $data['_token']);
+            unset($data['src'], $data['_token']);
         }
 
         if ($uploaded) {
             $blogItem = $this->find($id);
 
-            Storage::delete($blogItem->image);
+            Storage::delete($blogItem->src);
 
-            $data['image'] = $uploaded;
+            $data['src'] = $uploaded;
         } else {
-            unset($data['image']);
+            unset($data['src']);
         }
 
         $blog = $this->update($data, $id);
@@ -119,7 +119,7 @@ class BlogRepository extends Repository
     {
         $blogItem = $this->find($id);
 
-        $blogItemImage = $blogItem->image;
+        $blogItemImage = $blogItem->src;
 
         Storage::delete($blogItemImage);
 

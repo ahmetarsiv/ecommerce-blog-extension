@@ -13,17 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blog_tags', function (Blueprint $table) {
+        Schema::create('blog_comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('description');
+            $table->foreignId('author');
+            $table->foreignId('post');
+            $table->string('email');
+            $table->string('comment');
             $table->boolean('status');
-            $table->string('locale');
-            $table->string('meta_title');
-            $table->string('meta_description');
-            $table->string('meta_keywords');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_tags');
+        Schema::dropIfExists('blog_comments');
     }
 };

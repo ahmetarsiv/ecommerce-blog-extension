@@ -50,5 +50,5 @@
 @stop
 
 @push('scripts')
-    @include('admin::export.export', ['gridName' => app('Webkul\Blog\DataGrids\CategoryDataGrid')])
+    @include('admin::export.export', ['gridName' => app('Webkul\Article\DataGrids\CategoryDataGrid')])
 @endpush

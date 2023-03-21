@@ -1,15 +1,15 @@
 <?php
 
-namespace Webkul\Blog\Http\Controllers\Admin;
+namespace Webkul\Article\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Webkul\Blog\Datagrids\CategoryDataGrid;
-use Webkul\Blog\Repositories\BlogCategoryRepository;
+use Webkul\Article\Datagrids\CategoryDataGrid;
+use Webkul\Article\Repositories\BlogCategoryRepository;
 
-class AdminCategoryController extends Controller
+class CategoryController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 

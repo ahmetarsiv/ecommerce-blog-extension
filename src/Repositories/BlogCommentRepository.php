@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Blog\Repositories;
+namespace Webkul\Article\Repositories;
 
 use Illuminate\Support\Facades\Event;
 use Webkul\Core\Eloquent\Repository;
@@ -14,14 +14,14 @@ class BlogCommentRepository extends Repository
      */
     function model()
     {
-        return 'Webkul\Blog\Models\Comment';
+        return 'Webkul\Article\Models\Comment';
     }
 
     /**
      * Save blog tag.
      *
      * @param  array  $data
-     * @return bool|\Webkul\Blog\Contracts\Comment
+     * @return bool|\Webkul\Article\Contracts\Comment
      */
     public function save(array $data)
     {

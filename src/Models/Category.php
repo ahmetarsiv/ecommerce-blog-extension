@@ -1,10 +1,10 @@
 <?php
 
-namespace Webkul\Blog\Models;
+namespace Webkul\Article\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Webkul\Blog\Contracts\Category as CategoryContract;
+use Webkul\Article\Contracts\Category as CategoryContract;
 
 class Category extends Model implements CategoryContract
 {

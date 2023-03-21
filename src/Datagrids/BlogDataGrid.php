@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Blog\Datagrids;
+namespace Webkul\Article\Datagrids;
 
 use Illuminate\Support\Facades\DB;
 use Webkul\Core\Models\Channel;
@@ -74,7 +74,7 @@ class BlogDataGrid extends DataGrid
         $queryBuilder = DB::table('blogs')
             ->select('blogs.id','blogs.name', 'blogs.slug', 'blogs.short_description', 'blogs.description', 'blogs.channels',
                 'category.name as category_name', 'blogs.author',
-                'blogs.tags', 'blogs.image', 'blogs.status', 'blogs.allow_comments', 'blogs.published_at',
+                'blogs.tags', 'blogs.src', 'blogs.status', 'blogs.allow_comments', 'blogs.published_at',
                 'blogs.meta_title', 'blogs.meta_description', 'blogs.meta_keywords')
             ->leftJoin('blog_categories as category', 'blogs.default_category', '=', 'category.id');
 

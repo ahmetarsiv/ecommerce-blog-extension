@@ -36,5 +36,5 @@
 @stop
 
 @push('scripts')
-    @include('admin::export.export', ['gridName' => app('Webkul\Blog\DataGrids\CommentDataGrid')])
+    @include('admin::export.export', ['gridName' => app('Webkul\Article\DataGrids\CommentDataGrid')])
 @endpush

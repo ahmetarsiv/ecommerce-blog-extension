@@ -1,10 +1,10 @@
 <?php
 
-namespace Webkul\Blog\Models;
+namespace Webkul\Article\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Webkul\Blog\Contracts\Comment as CommentContract;
+use Webkul\Article\Contracts\Comment as CommentContract;
 
 class Comment extends Model implements CommentContract
 {
@@ -25,6 +25,6 @@ class Comment extends Model implements CommentContract
      */
     public function blog()
     {
-        return $this->hasOne('Webkul\Blog\Models\Blog', 'id', 'post');
+        return $this->hasOne('Webkul\Article\Models\Blog', 'id', 'post');
     }
 }
